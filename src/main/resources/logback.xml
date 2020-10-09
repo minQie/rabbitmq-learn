@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+  <property name="DEBUG_CONSOLE_LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss} %green(%-5level) --- [%15.15thread] | %cyan(%-40.40logger{39} %4line) | %message%n%exception"/>
+  <property name="INFO_CONSOLE_LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss} %green(%-5level) --- [%15.15thread] | %cyan(%-40.40logger{39} %4line) | %message%n%exception"/>
+  <property name="WARN_CONSOLE_LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss} %yellow(%-5level) --- [%15.15thread] | %cyan(%-40.40logger{39} %4line) | %yellow(%message%n%exception)"/>
+  <property name="ERROR_CONSOLE_LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss} %red(%-5level) --- [%15.15thread] | %cyan(%-40.40logger{39} %4line) | %red(%message%n%exception)"/>
+
+  <appender name ="DEBUG_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>DEBUG</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <encoder>
+      <pattern>${DEBUG_CONSOLE_LOG_PATTERN}</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <appender name ="INFO_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <encoder>
+      <pattern>${INFO_CONSOLE_LOG_PATTERN}</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <appender name ="WARN_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>WARN</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <encoder>
+      <pattern>${WARN_CONSOLE_LOG_PATTERN}</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <appender name ="ERROR_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>ERROR</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <encoder>
+      <pattern>${ERROR_CONSOLE_LOG_PATTERN}</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="DEBUG_CONSOLE"/>
+    <appender-ref ref="INFO_CONSOLE"/>
+    <appender-ref ref="WARN_CONSOLE"/>
+    <appender-ref ref="ERROR_CONSOLE"/>
+  </root>
+
+</configuration>
